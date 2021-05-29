@@ -11,7 +11,6 @@ type VideoController interface {
 	Save(ctx *gin.Context) entity.Video
 }
 
-// implement that interface
 type controller struct {
 	service service.VideoService
 }
@@ -23,7 +22,7 @@ func New(service service.VideoService) VideoController {
 }
 
 func (c *controller) FindAll() []entity.Video {
-	return service.New().FindAll()
+	return c.service.FindAll()
 }
 
 func (c *controller) Save(ctx *gin.Context) entity.Video {
